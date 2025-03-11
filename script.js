@@ -1,15 +1,23 @@
-let lagreButtonEl = document.querySelector("#lagreButton")
-let gjoremalListeEl = document.querySelector("#gjormalListe")
+let lagreButtonEl = document.querySelector("#lagreForm")
+let gjoremalListeEl = document.querySelector("#gjoremalListe")
 
 
 
-document.addEventListener("click", () => {
+lagreButtonEl.addEventListener("click", () => {
     let overskrift = document.querySelector("#overskrift").value;
-    let langreInfo = document.querySelector("#lengreInfo").value;
+    let lengreInfo = document.querySelector("#lengreInfo").value;
     let viktighet = document.querySelector("#viktighet").value;
 
-    gjoremalListe.createElement("h1")
-    gjoremalListe.createElement("p")
-    gjoremalListe.createElement("h4")
+    let nyOverskrift = document.createElement("h1")
+    let nyInfo = document.createElement("p")
+    let nyViktighet = document.createElement("h4")
+
+    nyOverskrift.textContent = overskrift
+    nyInfo.textContent = lengreInfo
+    nyViktighet.textContent = viktighet
+
+    gjoremalListeEl.appendChild(nyOverskrift)
+    gjoremalListeEl.appendChild(nyInfo)
+    gjoremalListeEl.appendChild(nyViktighet)
 
 })
