@@ -30,6 +30,7 @@ function getLocal() {
     }
 }
 
+
 if (localStorage.getItem("overskrift") === null){
     console.log("Hello, first time visitor")
 } else {
@@ -38,6 +39,14 @@ console.log("Welcome back!")
 }
 
 lagreButtonEl.addEventListener("click", () => {
+    let savedOverskriftArray = localStorage.getItem("overskrift")
+    let savedInfoArray = localStorage.getItem("info")
+    let savedViktighetArray = localStorage.getItem("viktighet")
+
+    let overskriftArray = JSON.parse(savedOverskriftArray)
+    let infoArray = JSON.parse(savedInfoArray)
+    let viktighetArray = JSON.parse(savedViktighetArray)
+
     let overskrift = document.querySelector("#overskrift").value;
     let info = document.querySelector("#info").value;
     let viktighet = document.querySelector("#viktighet").value;
@@ -49,7 +58,6 @@ lagreButtonEl.addEventListener("click", () => {
     let stringifiedOverskrift = JSON.stringify(overskriftArray)
     let stringifiedInfo = JSON.stringify(infoArray)
     let stringifiedViktighet = JSON.stringify(viktighetArray)
-
     
     localStorage.setItem("overskrift", stringifiedOverskrift)
     localStorage.setItem("info", stringifiedInfo)
