@@ -1,9 +1,11 @@
+// Triple array Funker ikke?
+
 let lagreButtonEl = document.querySelector("#lagreForm")
 let gjoremalListeEl = document.querySelector("#gjoremalListe")
 let overskriftArray = []
 let infoArray = []
 let viktighetArray = []
-
+let gjoremalClass = "Hei"
 
 function getLocal() { 
     let savedOverskriftArray = localStorage.getItem("overskrift")
@@ -18,14 +20,26 @@ function getLocal() {
         let nyOverskrift = document.createElement("h1")
         let nyInfo = document.createElement("p")
         let nyViktighet = document.createElement("h4")
+        let nyButton = document.createElement("button")
     
         nyOverskrift.textContent = overskriftArrayNy[i]
         nyInfo.textContent = infoArrayNy[i]
         nyViktighet.textContent = viktighetArrayNy[i]
-    
+        nyButton.textContent = "Fjern meg"
+
+        nyOverskrift.setAttribute("class", gjoremalClass)
+        nyInfo.setAttribute("class", gjoremalClass)
+        nyViktighet.setAttribute("class", gjoremalClass)
+        nyButton.setAttribute("onclick", () => {
+            }
+        )
+
+        gjoremalClass += "1"
+
         gjoremalListeEl.appendChild(nyOverskrift)
         gjoremalListeEl.appendChild(nyInfo)
         gjoremalListeEl.appendChild(nyViktighet)
+        nyViktighet.appendChild(nyButton)
     
     }
 }
@@ -62,6 +76,12 @@ function addFormToArray() {
         nyInfo.textContent = info
         nyViktighet.textContent = viktighet
 
+        nyOverskrift.setAttribute("class", gjoremalClass)
+        nyInfo.setAttribute("class", gjoremalClass)
+        nyViktighet.setAttribute("class", gjoremalClass)
+
+        gjoremalClass += 1
+
         gjoremalListeEl.appendChild(nyOverskrift)
         gjoremalListeEl.appendChild(nyInfo)
         gjoremalListeEl.appendChild(nyViktighet)
@@ -88,13 +108,85 @@ function clearGjoremal() {
     location.reload()
 }
 
+function removeSingle() {
+    console.log("hello")
+}
+
+// document.querySelector(".removeME").addEventListener("click", () => { 
+//     document.querySelector(".removeME").parentElement.style.display = "none"
+// }
+// )
+
+
 document.querySelector("#clearForm").addEventListener("click", clearGjoremal)
 
-// let fjernGjoremalKnapp = document.querySelector("#fjernGjoremal")
 
-// function ferdigGjoremal() {
+// Nytt forsøk___________________________________________________________________________________________
+
+
+// let lagreButtonEl = document.querySelector("#lagreForm")
+// let gjoremalListeEl = document.querySelector("#gjoremalListe")
+
+// let gjoremalArray = []
+// let gjoremalClass = 0
+
+// function getLocal() { 
+//     let savedGjoremalArray = localStorage.getItem("gjoremalArray")
+
+//     let gjoremalArrayNy = JSON.parse(savedGjoremalArray)
+
+//     for (let i = 0; i < gjoremalArrayNy.length; i++) {
+//         let nyGjoremal = document.createElement("h1")
     
+//         nyGjoremal.textContent = gjoremalArrayNy[i]
+
+//         nyGjoremal.setAttribute("class", gjoremalClass)
+
+//         gjoremalClass += 1
+
+//         gjoremalListeEl.appendChild(nyGjoremal)
+//     }
 // }
 
-// fjernGjoremalKnapp.addEventListener("click", ferdigGjoremal)
+// if (localStorage.getItem("gjoremalArray") === null){
+//     console.log("Hello, first time visitor")
+// } else {
+// getLocal()
+// console.log("Welcome back!")
+// }
 
+// function addFormToArray() {
+//         let gjoremal = document.querySelector("#overskrift").value;
+
+//         gjoremalArray.push(gjoremal)
+
+//         let stringifiedGjoremal = JSON.stringify(gjoremalArray)
+        
+//         localStorage.setItem("gjoremalArray", stringifiedGjoremal)
+
+//         let nyGjoremal = document.createElement("h1")
+
+//         nyGjoremal.textContent = gjoremal
+
+//         nyGjoremal.setAttribute("class", gjoremalClass)
+
+//         gjoremalClass += 1
+
+//         gjoremalListeEl.appendChild(nyGjoremal)
+// }
+
+// lagreButtonEl.addEventListener("click", () => {
+//     if (localStorage.getItem("gjoremalArray") === null){
+//         addFormToArray()
+//     } else {
+//     let savedGjoremalArray = localStorage.getItem("gjoremalArray")
+
+//     gjoremalArray = JSON.parse(savedGjoremalArray)
+
+//     addFormToArray()
+//     }
+// })
+
+// function removeSingle() {
+
+// }

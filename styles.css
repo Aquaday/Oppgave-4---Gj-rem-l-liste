@@ -40,3 +40,7 @@ button {
 button:hover {
   background-color: rgb(130, 145, 150);
 }
+
+.close {
+  display: none;
+}
