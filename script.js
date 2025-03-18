@@ -5,7 +5,6 @@ let gjoremalListeEl = document.querySelector("#gjoremalListe")
 let overskriftArray = []
 let infoArray = []
 let viktighetArray = []
-let gjoremalClass = "Hei"
 
 function getLocal() { 
     let savedOverskriftArray = localStorage.getItem("overskrift")
@@ -26,15 +25,6 @@ function getLocal() {
         nyInfo.textContent = infoArrayNy[i]
         nyViktighet.textContent = viktighetArrayNy[i]
         nyButton.textContent = "Fjern meg"
-
-        nyOverskrift.setAttribute("class", gjoremalClass)
-        nyInfo.setAttribute("class", gjoremalClass)
-        nyViktighet.setAttribute("class", gjoremalClass)
-        nyButton.setAttribute("onclick", () => {
-            }
-        )
-
-        gjoremalClass += "1"
 
         gjoremalListeEl.appendChild(nyOverskrift)
         gjoremalListeEl.appendChild(nyInfo)
@@ -75,12 +65,6 @@ function addFormToArray() {
         nyOverskrift.textContent = overskrift
         nyInfo.textContent = info
         nyViktighet.textContent = viktighet
-
-        nyOverskrift.setAttribute("class", gjoremalClass)
-        nyInfo.setAttribute("class", gjoremalClass)
-        nyViktighet.setAttribute("class", gjoremalClass)
-
-        gjoremalClass += 1
 
         gjoremalListeEl.appendChild(nyOverskrift)
         gjoremalListeEl.appendChild(nyInfo)
