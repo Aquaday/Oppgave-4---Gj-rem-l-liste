@@ -19,17 +19,14 @@ function getLocal() {
         let nyOverskrift = document.createElement("h1")
         let nyInfo = document.createElement("p")
         let nyViktighet = document.createElement("h4")
-        let nyButton = document.createElement("button")
     
         nyOverskrift.textContent = overskriftArrayNy[i]
         nyInfo.textContent = infoArrayNy[i]
         nyViktighet.textContent = viktighetArrayNy[i]
-        nyButton.textContent = "Fjern meg"
 
         gjoremalListeEl.appendChild(nyOverskrift)
         gjoremalListeEl.appendChild(nyInfo)
         gjoremalListeEl.appendChild(nyViktighet)
-        nyViktighet.appendChild(nyButton)
     
     }
 }

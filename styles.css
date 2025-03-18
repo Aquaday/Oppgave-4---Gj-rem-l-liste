@@ -1,7 +1,11 @@
+body {
+  box-sizing: border-box;
+}
+
 section {
   margin: auto;
   max-width: 500px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family:monospace;
   padding: 20px;
 }
 
@@ -12,35 +16,89 @@ section {
 }
 
 input {
-  border-radius: 5px;
-  border: 1px solid black;
+  border-radius: 15px;
+  border: 2px solid black;
   background-color: rgb(200, 222, 230);
-  padding: 5px;
+  padding: 10px;
 }
 
 
 label {
-  margin-left: 5px;
-
+  margin-left: 10px;
+  font-weight: 500;
 }
 
 input:hover {
   background-color: rgb(154, 255, 255);
 }
 
+.buttonsDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 button {
-  border-radius: 5px;
+  border-radius: 15px;
   border: 2px solid black;
   background-color: rgb(58, 64, 66);
   padding: 10px;
   color: white;
-  max-width: 300px;
-  margin: 10px;
+  min-width: 200px;
+  margin-top: 10px;
 }
+
 button:hover {
   background-color: rgb(130, 145, 150);
 }
 
 .close {
   display: none;
+}
+
+#gjoremalListe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+#gjoremalListe h1 {
+  font-weight: 500;
+  padding: 10px 5px;
+  margin: 0;
+  width: 30%;
+  overflow-wrap:break-word;
+  border-bottom: 1px solid black;
+
+}
+
+#gjoremalListe p {
+  font-weight: 300;
+  padding: 10px 5px;
+  margin: 0;
+  width: 50%;
+  overflow-wrap:break-word;
+  border-bottom: 1px solid black;
+}
+
+#gjoremalListe h4 {
+  font-weight: 500;
+  padding: 10px 5px;
+  margin: 0;
+  width: 10%;
+  overflow-wrap:break-word;
+  border-bottom: 1px solid black;
+}
+
+#gjoremalListe h2 {
+  font-weight: 400;
+  padding: 10px 5px;
+  margin: 0;
+  width: 90%;
+  overflow-wrap:break-word;
+  border-bottom: 1px solid black;
 }

@@ -8,14 +8,11 @@ function getLocal() {
     let gjoremalArrayNy = JSON.parse(localStorage.getItem("gjoremal"))
 
     for (let i = 0; i < gjoremalArrayNy.length; i++) {
-        let nyGjoremal = document.createElement("h1")
-        let nyButton = document.createElement("button")
+        let nyGjoremal = document.createElement("h2")
     
         nyGjoremal.textContent = gjoremalArrayNy[i]
-        nyButton.textContent = "Fjern meg"
 
         gjoremalListeEl.appendChild(nyGjoremal)
-        nyGjoremal.appendChild(nyButton)
     }
 }
 
@@ -35,16 +32,11 @@ function addFormToArray() {
         
         localStorage.setItem("gjoremal", stringifiedGjoremal)
 
-        let nyGjoremal = document.createElement("h1")
-        let nyButton = document.createElement("button")
+        let nyGjoremal = document.createElement("h2")
 
         nyGjoremal.textContent = gjoremal
-        nyButton.textContent = "Fjern meg"
 
         gjoremalListeEl.appendChild(nyGjoremal)
-        nyGjoremal.appendChild(nyButton)
-    
-
 }
 
 lagreButtonEl.addEventListener("click", () => {
