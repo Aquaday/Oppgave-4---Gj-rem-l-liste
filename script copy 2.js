@@ -1,41 +1,83 @@
-const toDoList = document.querySelector("#gjoremalListe")
-
-const toDoItem = document.createElement("li")
 
 const lagreButtonEl = document.querySelector("#lagreForm")
 
-const userInput = document.querySelector("#gjoremal").value
+const toDoList = document.querySelector("#gjoremalListe")
 
-toDoItem.textContent = userInput
+lagreButtonEl.addEventListener("click", function (Event) {
+    Event.preventDefault()
 
-lagreButtonEl.addEventListener("click", function () {
+    const userInput = document.querySelector("#gjoremal").value
+
+    const toDoItem = document.createElement("li")
+
+    toDoItem.textContent = userInput
 
     toDoList.appendChild(toDoItem)
+
+    document.querySelector("#gjoremal").value = ""
+
+
+    const deleteButton = document.createElement("button")
+
+    deleteButton.textContent = "Slett"
+
+    toDoItem.appendChild(deleteButton)
+
+    deleteButton.addEventListener("click", function () {
+        console.log("slett knapen er trykket!")
+
+        toDoItem.remove()
+    })
+
+
+    const ferdigButton = document.createElement("button")
+
+    ferdigButton.textContent = "Ferdig"
+
+    toDoItem.appendChild(ferdigButton)
+
+    ferdigButton.addEventListener("click", function () {
+        
+        console.log("finished knappen er trykket!")
+
+        toDoItem.classList.add("finished")
+
+        
+    })
+
+    addListToLocal()
+    
 })
 
+if (localStorage.getItem("toDoList") === null) {
+    console.log("Welcome")
+} else {
+    getListFromLocal()
+}
 
 
-const deleteButton = document.createElement("button")
+function getListFromLocal() {
+    let unstringedToDoList = JSON.parse(localStorage.getItem("toDoList"))
 
-deleteButton.textContent = "Slett"
+    console.log(unstringedToDoList)
 
-toDoItem.appendChild(deleteButton)
-
-deleteButton.addEventListener("click", function () {
-    console.log("slett knapen er trykket!")
-
-    toDoItem.remove()
-})
+    toDoList.innerHTML = unstringedToDoList
 
 
-const ferdigButton = document.createElement("button")
+}
 
-ferdigButton.textContent = "Ferdig"
 
-toDoItem.appendChild(ferdigButton)
+function addListToLocal() {
+    let toDoListSave = document.querySelector("#gjoremalListe").innerHTML
 
-ferdigButton.addEventListener("click", function () {
-    console.log("finished knappen er trykket!")
+    console.log(toDoListSave)
 
-    toDoItem.classList.add("finished")
-})
+    let stringifiedToDoList = JSON.stringify(toDoListSave)
+
+    console.log(stringifiedToDoList)
+
+    localStorage.setItem("toDoList", stringifiedToDoList)
+}
+
+
+
