@@ -102,3 +102,7 @@ button:hover {
   overflow-wrap:break-word;
   border-bottom: 1px solid black;
 }
+
+.finished {
+  text-decoration: line-through;
+}
